@@ -1,4 +1,14 @@
 function minDate(dates) {
+	const old  = new Date(dates[0].replace(/\//g, "-"));
+	for(let i=1; i<dates.length; i++){
+		const newDate  = new Date(dates[i].replace(/\//g, "-"));
+		if(newDate < old){
+			old = newDate;
+		}
+	}
+
+	return old.toISOString().split("T")[0]; 
+	
   //write you code here
 }
 
@@ -37,4 +47,4 @@ var dates = [
   "2023/03/30",
 ];
 
-alert(minDate(dates));
+// alert(minDate(dates));
